@@ -49,4 +49,6 @@ Pay attention only to the ``kubeadm join`` command. Everything else has already 
 
 Once you are done doing that, congratulations - you have installed this THING after a long arduous journey that even Frodo wouldn't take (I hope you didn't do this on your weekend). Go run some pods! (Don't eat them).
 
-Ooh,  btw if you ever lose the ``kubeadm join`` command run ``kubeadm token create --print-join-command`` to get a new one. You're welcome :) Peace out!
+Ooh,  btw if you ever lose the ``kubeadm join`` command run ``kubeadm token create --print-join-command`` to get a new one. You're welcome :)
+
+Star if you liked it, Watch if you loved it!Peace out!
