@@ -47,6 +47,6 @@ kubeadm join ip:6443 --token gibberish \
 ```
 Pay attention only to the ``kubeadm join`` command. Everything else has already been taken care of. You need to run this on all your worker nodes when the installation on those nodes completes. 
 
-Once you are done doing that, congratulations - you have installed this THING after this long arduous journey that even Frodo wouldn't take (I hope you didn't do this on your weekend). Go run some pods! (Don't eat them).
+Once you are done doing that, congratulations - you have installed this THING after a long arduous journey that even Frodo wouldn't take (I hope you didn't do this on your weekend). Go run some pods! (Don't eat them).
 
 Ooh,  btw if you ever lose the ``kubeadm join`` command run ``kubeadm token create --print-join-command`` to get a new one. You're welcome :) Peace out!
