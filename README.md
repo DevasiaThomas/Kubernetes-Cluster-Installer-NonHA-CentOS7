@@ -51,4 +51,4 @@ Once you are done doing that, congratulations - you have installed this THING af
 
 Ooh,  btw if you ever lose the ``kubeadm join`` command run ``kubeadm token create --print-join-command`` to get a new one. You're welcome :)
 
-Star if you liked it, Watch if you loved it!Peace out!
+Star if you liked it, Watch if you loved it! Peace out!
