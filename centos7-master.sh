@@ -1,9 +1,12 @@
 #!/bin/bash
+sysctl net.bridge.bridge-nf-call-iptables=1
 yum update -y
 yum install -y docker-ce docker-ce-cli containerd.io
 
 update-alternatives --set iptables /usr/sbin/iptables-legacy
 firewall-cmd --permanent --add-port=6443/tcp
+firewall-cmd --permanent --add-port=6783/tcp
+firewall-cmd --permanent --add-port=6783-6784/udp
 firewall-cmd --permanent --add-port=2379-2380/tcp
 firewall-cmd --permanent --add-port=10250-10252/tcp
 firewall-cmd --permanent --add-port=30000-32767/tcp
@@ -63,12 +66,12 @@ systemctl enable --now kubelet
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 kubectl completion bash >/etc/bash_completion.d/kubectl
 kubeadm config images pull
-kubeadm init --pod-network-cidr=192.168.0.0/16
+kubeadm init
 echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >> ~/.bashrc
 mkdir -p $HOME/.kube
 cp /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
-kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 wget https://get.helm.sh/helm-v3.0.0-rc.3-linux-amd64.tar.gz
 tar -xzf helm-v3.0.0-rc.3-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/
