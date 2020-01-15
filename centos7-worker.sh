@@ -1,9 +1,12 @@
 #!/bin/bash
+sysctl net.bridge.bridge-nf-call-iptables=1
 yum update -y
 yum install -y docker-ce docker-ce-cli containerd.io
 
 update-alternatives --set iptables /usr/sbin/iptables-legacy
 firewall-cmd --permanent --add-port=6443/tcp
+firewall-cmd --permanent --add-port=6783/tcp
+firewall-cmd --permanent --add-port=6783-6784/udp
 firewall-cmd --permanent --add-port=2379-2380/tcp
 firewall-cmd --permanent --add-port=10250-10252/tcp
 firewall-cmd --permanent --add-port=30000-32767/tcp
