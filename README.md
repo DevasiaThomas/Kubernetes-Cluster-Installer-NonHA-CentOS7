@@ -22,7 +22,7 @@ This script installs docker as the container service for K8. You may want to pul
 
 ``#  "insecure-registries": ["ip/subnet", "name:port"],``
 
-Uncomment that and fill it with values if required. Remember to save the file - it happens to the best of us ( It hasn't happened to me yet -- must mean I'm not the best. Screw you universe!).
+Uncomment that and fill it with values if required Remove that line if not required - JSON files don't support comments. Remember to save the file - it happens to the best of us ( It hasn't happened to me yet -- must mean I'm not the best. Screw you universe!).
 
 #### Installation starts here
 Now on your chosen master node, run ``centos7-master.sh`` and in parallel (remember Shia is commanding you), on all your worker nodes, run ``centos7-worker.sh``. If you wish to see exactly what my script is doing run them using ``sh -x``, for that gorgeous, wonderful, amazing detail that's almost lets you enter the matrix.
